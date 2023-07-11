@@ -1,0 +1,54 @@
+<StandaloneCodeEditor Id="@Id" ConstructionOptions="EditorConstructionOptions" />
+
+@code {
+    
+    [Parameter]
+    public StandaloneCodeEditor Ref { get; set; } = null!;
+
+    static int _id;
+    static string Id {
+        get { _id++; return _id.ToString(); }
+    }
+
+    private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor) {
+        Ref = editor;
+        return new StandaloneEditorConstructionOptions
+        {
+            AutomaticLayout = true,
+            Language = "csharp",
+            Value = CodeProvider.BaseCode(),
+            Theme = "vs-dark",
+            ScrollBeyondLastLine = false,
+            Suggest = new SuggestOptions {
+                Preview = true,
+                FilterGraceful = true,
+                LocalityBonus = true,
+                ShowClasses = true,
+                ShowColors = true,
+                ShowConstants = true,
+                ShowConstructors = true,
+                ShowEnums = true,
+                ShowEvents = true,
+                ShowFields = true,
+                ShowFiles = true,
+                ShowFolders = true,
+                ShowFunctions = true,
+                ShowInterfaces = true,
+                ShowIssues = true,
+                ShowKeywords = true,
+                ShowMethods = true,
+                ShowModules = true,
+                ShowOperators = true,
+                ShowProperties = true,
+                ShowReferences = true,
+                ShowSnippets = true,
+                ShowStructs = true,
+                ShowTypeParameters = true,
+                ShowUnits = true,
+                ShowUsers = true,
+                ShowValues = true,
+                ShowVariables = true
+            }
+        };
+    }
+}

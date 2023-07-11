@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "xpRPv57DEwJL7wW+JnC8Aoo1+os5VUgA5rKsCcANq0xR35641F0jYUDdxLCl+WQx6sBdPp8ffApiNfFjCCp9dg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dominik\\Desktop\\Projects\\CodingSite\\CodingBlazor\\CodingBlazor\\CodingBlazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dominik\\.nuget\\packages\\blazormonaco\\3.0.0\\blazormonaco.3.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.0\\microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.0\\microsoft.aspnetcore.components.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.0\\microsoft.aspnetcore.components.analyzers.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\7.0.0\\microsoft.aspnetcore.components.forms.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.components.web\\7.0.0\\microsoft.aspnetcore.components.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.0\\microsoft.aspnetcore.metadata.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.codeanalysis.common\\4.7.0-2.final\\microsoft.codeanalysis.common.4.7.0-2.final.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.7.0-2.final\\microsoft.codeanalysis.csharp.4.7.0-2.final.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.jsinterop\\7.0.0\\microsoft.jsinterop.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dominik\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,98 @@
+@page "/compiler"
+
+<div class="d-flex justify-content-between mb-1">
+    <h3>Compile C# Code</h3>
+<button class="btn btn-primary" @onclick="CompileCode">Compile</button>
+</div>
+
+
+<StandaloneCodeEditor Id="1" ConstructionOptions="EditorConstructionOptions" />
+
+
+@if (Output is not null) {
+    <h4>Output:</h4>
+    <pre>@Output</pre>
+}
+
+@code {
+    StandaloneCodeEditor Editor { get; set; } = null!;
+    private string? Output { get; set; }
+
+    private async Task CompileCode() {
+        var syntaxTree = CSharpSyntaxTree.ParseText(await Editor.GetValue());
+        var sr = Assembly.Load("System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+        var mscorlib = Assembly.Load("mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"); // for .NET Framework
+        var systemCollections = Assembly.Load("System.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"); // for .NET Core or .NET 5+
+        var compilation = CSharpCompilation.Create("DynamicAssembly").WithOptions(new CSharpCompilationOptions(OutputKind.ConsoleApplication)).AddReferences(MetadataReference.CreateFromFile(systemCollections.Location),MetadataReference.CreateFromFile(mscorlib.Location),MetadataReference.CreateFromFile(sr.Location),MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location), MetadataReference.CreateFromFile(typeof(object).Assembly.Location), MetadataReference.CreateFromFile(typeof(decimal).Assembly.Location), MetadataReference.CreateFromFile(typeof(Console).Assembly.Location), MetadataReference.CreateFromFile(typeof(GCSettings).Assembly.Location), MetadataReference.CreateFromFile(typeof(DynamicAttribute).Assembly.Location), MetadataReference.CreateFromFile(typeof(Marshal).Assembly.Location), MetadataReference.CreateFromFile(typeof(DllImportAttribute).Assembly.Location), MetadataReference.CreateFromFile(typeof(AssemblyTargetedPatchBandAttribute).Assembly.Location), MetadataReference.CreateFromFile(typeof(Unsafe).Assembly.Location), MetadataReference.CreateFromFile(typeof(Expression).Assembly.Location), MetadataReference.CreateFromFile(typeof(ExpressionType).Assembly.Location), MetadataReference.CreateFromFile(typeof(Expression<>).Assembly.Location)).AddSyntaxTrees(syntaxTree);
+
+        using var ms = new MemoryStream();
+        var result = compilation.Emit(ms);
+        if (!result.Success) {
+            Output = string.Join(System.Environment.NewLine, result.Diagnostics);
+        }
+        else {
+            ms.Seek(0, SeekOrigin.Begin);
+            var assembly = Assembly.Load(ms.ToArray());
+
+            var entryPoint = assembly.EntryPoint;
+            if (entryPoint != null) {
+                using var outputStream = new StringWriter();
+                Console.SetOut(outputStream);
+
+                object? instance = null;
+                if (!entryPoint.IsStatic)
+                    instance = assembly.CreateInstance(entryPoint.DeclaringType?.FullName);
+
+                entryPoint.Invoke(instance, null);
+
+                Output = outputStream.ToString();
+            }
+            else {
+                Output = "No entry point found in the code.";
+            }
+        }
+    }
+    
+    private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor) {
+        Editor = editor;
+        return new StandaloneEditorConstructionOptions
+        {
+            AutomaticLayout = true,
+            Language = "csharp",
+            Value = CodeProvider.BaseCode(),
+            Theme = "vs-dark",
+            ScrollBeyondLastLine = false,
+            Suggest = new SuggestOptions() {
+                Preview = true,
+                FilterGraceful = true,
+                LocalityBonus = true,
+                ShowClasses = true,
+                ShowColors = true,
+                ShowConstants = true,
+                ShowConstructors = true,
+                ShowEnums = true,
+                ShowEvents = true,
+                ShowFields = true,
+                ShowFiles = true,
+                ShowFolders = true,
+                ShowFunctions = true,
+                ShowInterfaces = true,
+                ShowIssues = true,
+                ShowKeywords = true,
+                ShowMethods = true,
+                ShowModules = true,
+                ShowOperators = true,
+                ShowProperties = true,
+                ShowReferences = true,
+                ShowSnippets = true,
+                ShowStructs = true,
+                ShowTypeParameters = true,
+                ShowUnits = true,
+                ShowUsers = true,
+                ShowValues = true,
+                ShowVariables = true
+                    
+            }
+        };
+    }
+}
