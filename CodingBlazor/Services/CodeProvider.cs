@@ -1,7 +1,7 @@
 namespace CodingBlazor.Services; 
 
 public static class CodeProvider {
-    public static string BaseCode() => @"
+    public static string BaseCSharpCode() => @"
 using System;
 using System.Collections.Generic;
 
@@ -10,4 +10,10 @@ using System.Collections.Generic;
             Console.WriteLine(""Hello, World!"");
         }
 }";
+
+    public static string BasePythonCode() => @"
+print(""Hello, World!"")";
+
+    public static string BaseJsCode() => @"
+console.log(""Hello, world!"");";
 }

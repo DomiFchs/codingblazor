@@ -1,22 +1,17 @@
-<StandaloneCodeEditor Id="@Id" ConstructionOptions="EditorConstructionOptions" />
+@using CodingBlazor.Entities
+<StandaloneCodeEditor ConstructionOptions="EditorConstructionOptions" />
 
 @code {
-    
     [Parameter]
-    public StandaloneCodeEditor Ref { get; set; } = null!;
-
-    static int _id;
-    static string Id {
-        get { _id++; return _id.ToString(); }
-    }
-
+    public Func<StandaloneCodeEditor, LanguageData> InitEditor { get; set; } = null!;
+    
     private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor) {
-        Ref = editor;
+        var languageData = InitEditor.Invoke(editor);
         return new StandaloneEditorConstructionOptions
         {
             AutomaticLayout = true,
-            Language = "csharp",
-            Value = CodeProvider.BaseCode(),
+            Language = languageData.Name,
+            Value = languageData.DefaultCode,
             Theme = "vs-dark",
             ScrollBeyondLastLine = false,
             Suggest = new SuggestOptions {

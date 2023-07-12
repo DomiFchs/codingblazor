@@ -4,17 +4,14 @@ using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using BlazorMonaco.Editor;
-using Microsoft.AspNetCore.Components;
+using CodingBlazor.Entities;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace CodingBlazor.Services; 
+namespace CodingBlazor.Services.Editor; 
 
-public class EditorBase : ComponentBase{
-    protected StandaloneCodeEditor Editor { get; set; } = null!;
-    protected string? Output { get; set; }
-    
-    protected async Task CompileCode() {
+public class CSharpEditor : EditorBase{
+    protected override async Task CompileCode() {
         var syntaxTree = CSharpSyntaxTree.ParseText(await Editor.GetValue());
         var sr = Assembly.Load("System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
         var sl = Assembly.Load("System.Linq, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
@@ -23,7 +20,7 @@ public class EditorBase : ComponentBase{
         using var ms = new MemoryStream();
         var result = compilation.Emit(ms);
         if (!result.Success) {
-            Output = string.Join(System.Environment.NewLine, result.Diagnostics);
+            Output = string.Join(Environment.NewLine, result.Diagnostics);
         }
         else {
             ms.Seek(0, SeekOrigin.Begin);
@@ -46,5 +43,13 @@ public class EditorBase : ComponentBase{
                 Output = "No entry point found in the code.";
             }
         }
+    }
+
+    protected override LanguageData InitEditor(StandaloneCodeEditor editor) {
+        base.InitEditor(editor);
+        return new LanguageData {
+            Name = EditorTypeHandler.GetLanguageString[typeof(CSharpEditor)],
+            DefaultCode = CodeProvider.BaseCSharpCode()
+        };
     }
 }

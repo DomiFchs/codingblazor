@@ -8,11 +8,19 @@
 
     <ItemGroup>
       <PackageReference Include="BlazorMonaco" Version="3.0.0" />
+      <PackageReference Include="IronPython" Version="3.4.0" />
+      <PackageReference Include="Jint" Version="3.0.0-beta-2002" />
       <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-2.final" />
+      <PackageReference Include="MudBlazor" Version="6.7.0" />
+      <PackageReference Include="Python.Runtime" Version="2.7.9" />
     </ItemGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\js\codeeditor.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\C#\Basics" />
     </ItemGroup>
 
 </Project>

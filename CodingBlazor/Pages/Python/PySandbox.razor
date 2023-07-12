@@ -1,0 +1,16 @@
+@page "/python/sandbox"
+@inherits PythonEditor
+
+<PageTitle>Python Sandbox</PageTitle>
+
+<div class="d-flex justify-content-between mb-1">
+    <h3>Python Sandbox</h3>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CompileCode">Execute</MudButton>
+</div>
+
+<CustomCodeEditor InitEditor="InitEditor"/>
+
+@if (Output is not null) {
+    <h4>Output:</h4>
+    <pre>@Output</pre>
+}

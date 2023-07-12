@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dhFGnalJalsEy3XwlLCYT6UXDnqTVa1UNurUTVeIGlw=",
+  "Hash": "SZnYuVL6veeMdK+sDDeDw31xKcqFis9iaunRYBDGgU4=",
   "Source": "CodingBlazor",
   "BasePath": "_content/CodingBlazor",
   "Mode": "Default",
@@ -4180,6 +4180,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Dominik\\.nuget\\packages\\blazormonaco\\3.0.0\\staticwebassets\\lib\\monaco-editor\\min\\vs\\loader.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Dominik\\.nuget\\packages\\mudblazor\\6.7.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
       "Identity": "C:\\Users\\Dominik\\Desktop\\Projects\\CodingSite\\CodingBlazor\\CodingBlazor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\CodingBlazor.styles.css",

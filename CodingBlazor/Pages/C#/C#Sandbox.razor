@@ -1,0 +1,17 @@
+@page "/csharp/sandbox"
+
+@inherits CodingBlazor.Services.Editor.CSharpEditor
+
+<PageTitle>C# Sandbox</PageTitle>
+
+<div class="d-flex justify-content-between mb-1">
+    <h3>C# Sandbox</h3>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CompileCode">Compile</MudButton>
+</div>
+
+<CustomCodeEditor InitEditor="InitEditor"/>
+
+@if (Output is not null) {
+    <h4>Output:</h4>
+    <pre>@Output</pre>
+}
